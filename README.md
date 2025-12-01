@@ -24,3 +24,9 @@ looking at my previous notes, it seems that my thoughts about this project are g
 The ONLY task to complete is adding a few new features to this basic demo.<br>
 <br>
 I really want to fix these design pattern issues before I continue though. 
+
+current session -> refactored the codebase. <br>
+
+next session:
+- very curious about adding the goal 
+- stretch: dynamic camera (already tested fov stuff a little bit)

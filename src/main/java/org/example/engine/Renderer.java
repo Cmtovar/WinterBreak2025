@@ -31,72 +31,41 @@ public class Renderer {
 
         // these render six faces by their vertices to see the cube
 
-        //  right
-        /*  + - -
-            + + -
-            + + +
-            + - +
-         */
-        GL11.glVertex3f(size, -size, -size);
-        GL11.glVertex3f(size, size, -size);
-        GL11.glVertex3f(size, size, size);
-        GL11.glVertex3f(size, -size, size);
+        // front face (facing +z)
+        GL11.glVertex3f(-size, -size,  size); // bottom-left
+        GL11.glVertex3f( size, -size,  size); // bottom-right
+        GL11.glVertex3f( size,  size,  size); // top-right
+        GL11.glVertex3f(-size,  size,  size); // top-left
 
-        //  top
-        /*  - + -
-            + - -
-            + - +
-            - - +
-         */
-        GL11.glVertex3f(-size, size, -size);
-        GL11.glVertex3f(size, -size, -size);
-        GL11.glVertex3f(size, -size, size);
-        GL11.glVertex3f(-size, -size, size);
+        // back face (facing -z)
+        GL11.glVertex3f( size, -size, -size); // bottom-left (from back view)
+        GL11.glVertex3f(-size, -size, -size); // bottom-right
+        GL11.glVertex3f(-size,  size, -size); // top-right
+        GL11.glVertex3f( size,  size, -size); // top-left
 
-        //  front
-        /*  - - +
-            + - +
-            + + +
-            - + +
-         */
-        GL11.glVertex3f(-size, -size, size);
-        GL11.glVertex3f(size, -size, size);
-        GL11.glVertex3f(size, size, size);
-        GL11.glVertex3f(-size, size, size);
+        // top face (facing +y)
+        GL11.glVertex3f(-size,  size, -size); // back-left
+        GL11.glVertex3f(-size,  size,  size); // front-left
+        GL11.glVertex3f( size,  size,  size); // front-right
+        GL11.glVertex3f( size,  size, -size); // back-right
 
+        // bottom face (facing -y)
+        GL11.glVertex3f(-size, -size,  size); // front-left
+        GL11.glVertex3f(-size, -size, -size); // back-left
+        GL11.glVertex3f( size, -size, -size); // back-right
+        GL11.glVertex3f( size, -size,  size); // front-right
 
-        //  back
-        /*  - - -
-            - + -
-            + + -
-            + - -
-         */
-        GL11.glVertex3f(-size, -size, -size);
-        GL11.glVertex3f(-size, size, -size);
-        GL11.glVertex3f(size, size, -size);
-        GL11.glVertex3f(size, -size, -size);
+        // right face (facing +x)
+        GL11.glVertex3f( size, -size,  size); // front-bottom
+        GL11.glVertex3f( size, -size, -size); // back-bottom
+        GL11.glVertex3f( size,  size, -size); // back-top
+        GL11.glVertex3f( size,  size,  size); // front-top
 
-        //  bottom
-        /*  - - -
-            + - -
-            + - +
-            - - +
-         */
-        GL11.glVertex3f(-size, -size, -size);
-        GL11.glVertex3f(size, -size, -size);
-        GL11.glVertex3f(size, -size, size);
-        GL11.glVertex3f(-size, -size, size);
-
-        //  left
-        /*  - - -
-            - - +
-            - + +
-            - + -
-         */
-        GL11.glVertex3f(-size, -size, -size);
-        GL11.glVertex3f(-size, -size, size);
-        GL11.glVertex3f(-size, size, size);
-        GL11.glVertex3f(-size, size, -size);
+        // left face (facing -x)
+        GL11.glVertex3f(-size, -size, -size); // back-bottom
+        GL11.glVertex3f(-size, -size,  size); // front-bottom
+        GL11.glVertex3f(-size,  size,  size); // front-top
+        GL11.glVertex3f(-size,  size, -size); // back-top
 
 
         GL11.glEnd();

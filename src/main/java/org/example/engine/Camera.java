@@ -35,7 +35,7 @@ public class Camera {
         //
         // if more space is needed in a direction, couple its increase/decrease with its neighboring axis to mitigate stretching
         // to pan the camera, apply increment/decrement to both ends of an axis
-        GL11.glOrtho(-9, 9, -12, 2, -20, 20); // simple orthogonal view
+        GL11.glOrtho(-3, 9, -4, 8, -20, 20); // simple orthogonal view
 
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
         GL11.glLoadIdentity();
@@ -91,6 +91,6 @@ public class Camera {
         //
         // GL11.glOrtho(-10, 11, -12, 9, -20, 20); for all GL11.glRotate(...);
 
-        GL11.glRotatef(90, 1, 0, 0); // tilt down
+        GL11.glRotatef(90, 0, 1, 1); // tilt down
     }
 }
