@@ -1,10 +1,11 @@
 package org.example.game;
 
 import org.example.config.GameBalance;
+import org.example.config.Material;
 import org.example.engine.Input;
+import org.example.engine.Renderer;
 import org.example.engine.Vector3Axis;
 import org.lwjgl.glfw.GLFW;
-import org.lwjgl.opengl.GL11;
 
 public class Player implements Movable{
     private Vector3Axis position;
@@ -51,87 +52,9 @@ public class Player implements Movable{
         return this.position;
     }
 
+    // todo: perhaps make Renderer a factory for different geometries instead of a monostate
     public void render() {
-        GL11.glColor3f(1.0f, 0.2f, 0.2f); // red
-        GL11.glPushMatrix();
-        GL11.glTranslatef((float) position.x, (float) position.y, (float) position.z);
-
-        float size = 0.4f;
-        // todo: add impl for Renderable interface?
-        GL11.glBegin(GL11.GL_QUADS);
-
-        // these render six faces by their vertices to see the cube
-
-        //  right
-        /*  + - -
-            + + -
-            + + +
-            + - +
-         */
-        GL11.glVertex3f( size, -size, -size);
-        GL11.glVertex3f( size,  size, -size);
-        GL11.glVertex3f( size,  size,  size);
-        GL11.glVertex3f( size, -size,  size);
-
-        //  top
-        /*  - + -
-            + - -
-            + - +
-            - - +
-         */
-        GL11.glVertex3f(-size,  size, -size);
-        GL11.glVertex3f( size, -size, -size);
-        GL11.glVertex3f( size, -size,  size);
-        GL11.glVertex3f(-size, -size,  size);
-
-        //  front
-        /*  - - +
-            + - +
-            + + +
-            - + +
-         */
-        GL11.glVertex3f(-size, -size, size);
-        GL11.glVertex3f( size, -size, size);
-        GL11.glVertex3f( size,  size, size);
-        GL11.glVertex3f(-size,  size, size);
-
-
-        //  back
-        /*  - - -
-            - + -
-            + + -
-            + - -
-         */
-        GL11.glVertex3f(-size, -size, -size);
-        GL11.glVertex3f(-size,  size, -size);
-        GL11.glVertex3f( size,  size, -size);
-        GL11.glVertex3f( size, -size, -size);
-
-        //  bottom
-        /*  - - -
-            + - -
-            + - +
-            - - +
-         */
-        GL11.glVertex3f(-size, -size, -size);
-        GL11.glVertex3f( size, -size, -size);
-        GL11.glVertex3f( size, -size,  size);
-        GL11.glVertex3f(-size, -size,  size);
-
-        //  left
-        /*  - - -
-            - - +
-            - + +
-            - + -
-         */
-        GL11.glVertex3f(-size, -size, -size);
-        GL11.glVertex3f(-size, -size,  size);
-        GL11.glVertex3f(-size,  size,  size);
-        GL11.glVertex3f(-size,  size, -size);
-
-
-        GL11.glEnd();
-        GL11.glPopMatrix();
+        Renderer.renderCube(new Vector3Axis(position.x, position.y, position.z), Material.PLAYER);
     }
 
 }
