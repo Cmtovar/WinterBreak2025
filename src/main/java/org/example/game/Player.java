@@ -12,6 +12,7 @@ public class Player implements Movable{
 
     // todo: check, passing world as a reference, consider DTO later
     public Player(Vector3Axis startPosition, World world) {
+        // center of the cube, todo: will overhang ledges
         this.position = startPosition;
         this.world = world;
     }
